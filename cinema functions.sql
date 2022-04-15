@@ -63,8 +63,8 @@ BEGIN
 END//
 DELIMITER ;
 
-DROP VIEW IF EXISTS `movie_scheduled_alltime_counter`;
-CREATE VIEW `movie_scheduled_alltime_counter` AS
+DROP VIEW IF EXISTS `movie_total_schedules_counter`;
+CREATE VIEW `movie_total_schedules_counter` AS
 SELECT DISTINCT m.title, IFNULL(((SELECT COUNT(movie_id) FROM `schedule` WHERE `schedule`.movie_id = m.movie_id)), 0) AS timed_scheduled
 FROM movies m, `schedule` s
 GROUP BY m.title
